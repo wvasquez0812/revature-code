@@ -1,12 +1,16 @@
-﻿using System;
+﻿using c = System.Console; //alias
 
-namespace HelloCsharp
+namespace HelloCsharp //directory
 {
     class Program
     {
-        static void Main(string[] args)
+        
+        static void Start(string[] args) // PascalCasing. Main keyword. main not. 
         {
-            Console.WriteLine("Hello World!");
+            c.WriteLine("");
+            c.WriteLine("Hello World!"); // fully qualified name
+            c.WriteLine("");
+
         }
     }
 }
