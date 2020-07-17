@@ -24,8 +24,8 @@ namespace Calculator
                 switch(choice)
                 {
                     case "1":
-                        //var input1 = (double) Console.ReadLine(); //explicit casting with exception
-                        //var input2 = Console.ReadLine() as double; // explicit casting with null
+                        // var input1 = (double) Console.ReadLine(); //explicit casting with exception
+                        // var input2 = Console.ReadLine() as double; // explicit casting with null
 
                         var input1 = double.Parse(Console.ReadLine()); //explicit parsing with exception
                         double input2;
@@ -60,10 +60,36 @@ namespace Calculator
                         Substract(input3, input4);
                         break;
 
+                    case "3":
+                        double input5;
+                        double input6;
+
+                        if(double.TryParse(Console.ReadLine(), out input5))
+                        {
+
+                            System.Console.WriteLine("valid input");
+
+                            if(double.TryParse(Console.ReadLine(), out input6))
+                            {
+                                System.Console.WriteLine("valid");
+                                Multiply(input5, input6);
+                            }
+                            else
+                            {
+                                System.Console.WriteLine("invalid");
+                            }
+                        } 
+                        else
+                        {
+                            System.Console.WriteLine("invalid");
+                        }
+                        break;
+
                     default:
                         stay = false;
                         break;
                 }
+                System.Console.WriteLine("");
             }
             while(stay);
 
@@ -88,9 +114,10 @@ namespace Calculator
             System.Console.WriteLine($"your answer is: {result}");
         }
 
-        static void Multiply()
+        static void Multiply(double input5, double input6)
         {
-
+            double result = input5 * input6;
+            System.Console.WriteLine($"your answer is: {result}");
         }
         static void Divide()
         {
