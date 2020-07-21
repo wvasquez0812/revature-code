@@ -7,16 +7,23 @@ namespace PizzaStore.Domain.Models
     {
         //STATE
         //feilds -- every instance has copy, or shares copy. should be priv
-        string ImageUrl = "";
-        double Diameter = 0;
+        private readonly string ImageUrl = "";
+        private const double Diameter = 0;
         
-        public List<string> _toppings = new List<string>();
-        public string Crust {get;}
+        private static string _name = "pizza";
+        private List<string> _toppings = new List<string>();
+        public string Crust {get; set;}
 
         //properties -- should be pub
-        public string Size { get; } // members class can change, no set only accessible by constructor
+        public string Size { get; set;} // members class can change, no set only accessible by constructor
 
-
+        public List<string> Toppings
+        {get
+            {
+                return _toppings;
+            }
+        }
+        
         //BEHAVIORS
         //methods
         void AddToppings(string topping)
@@ -50,6 +57,13 @@ namespace PizzaStore.Domain.Models
             Size = size;
             Crust = crust;
             _toppings.AddRange(toppings);
+        }
+
+        public Pizza()
+        {
+            // empty intentionally
+            Size = "";
+            Crust = "";
         }
         //finalizers or destructors
 

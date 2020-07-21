@@ -1,9 +1,10 @@
+using System;
 using System.Collections.Generic;
 using PizzaStore.Domain.Models;
 
 namespace PizzaStore.Client
 {
-    internal class Startup
+    public class Startup
     {
        public Order CreateOrder(User user, Store store)
        {
@@ -20,6 +21,11 @@ namespace PizzaStore.Client
            {    
                throw new System.Exception("we messed up");
                //return null;
+           }
+           finally
+           {
+               //GC.GetGeneration(user);
+               GC.Collect();
            }
        }
     }

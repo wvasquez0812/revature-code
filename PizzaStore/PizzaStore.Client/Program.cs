@@ -224,6 +224,14 @@ namespace PizzaStore.Client
                             DisplayCart3(cart);
                             break;
                         case 6:
+                            var smw = new SaveManager();
+                            smw.Write(cart);
+                            exit = true;
+                            break;
+
+                        case 7:
+                            var smr = new SaveManager();
+                            DisplayCart3(smr.Read());
                             exit = true;
                             break;
                     }
